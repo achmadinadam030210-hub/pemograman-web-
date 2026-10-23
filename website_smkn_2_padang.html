@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi SMKN 2 Padang</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Custom Theme Colors */
+        :root {
+            --primary-blue: #0d47a1;
+            --secondary-blue: #1976d2;
+            --accent-yellow: #ffb300;
+        }
+
+        .bg-primary-custom {
+            background-color: var(--primary-blue) !important;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #083378;
+            border-color: #083378;
+            color: white;
+        }
+
+        .text-primary-custom {
+            color: var(--primary-blue) !important;
+        }
+
+        /* Hero Carousel */
+        .carousel-item {
+            height: 480px;
+        }
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Nav Tab Link Customization */
+        .nav-link {
+            font-weight: 500;
+            color: #555;
+            transition: all 0.2s ease;
+        }
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+        .nav-link.active {
+            color: var(--primary-blue) !important;
+            font-weight: 700;
+            border-bottom: 3px solid var(--accent-yellow);
+        }
+
+        /* Card Hover Animation */
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12) !important;
+        }
+
+        /* Feature Icon Box */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .page-section {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- TOP BAR INFO -->
+    <div class="bg-primary-custom text-white py-2 text-center text-md-start">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <small><i class="bi bi-geo-alt-fill me-1"></i> Jl. Simpang Haru, No. 1, Kota Padang, Sumatera Barat</small>
+            <small class="mt-1 mt-md-0">
+                <i class="bi bi-telephone-fill me-1"></i> (0751) 21511 &nbsp;|&nbsp; 
+                <i class="bi bi-envelope-fill me-1"></i> info@smkn2padang.sch.id
+            </small>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#" onclick="switchPage('beranda')">
+                <div class="bg-primary-custom text-white rounded-circle p-2 me-2 d-flex align-items-center justify-content-center" style="width:45px; height:45px;">
+                    <i class="bi bi-mortarboard-fill fs-4"></i>
+                </div>
+                <div>
+                    <span class="fw-bold text-primary-custom d-block leading-none">SMKN 2 PADANG</span>
+                    <small class="text-muted fs-7" style="font-size: 0.75rem;">Unggul, Berkarakter & Competent</small>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-menu navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="nav-beranda" href="#" onclick="switchPage('beranda')"><i class="bi bi-house-door me-1"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-berita" href="#" onclick="switchPage('berita')"><i class="bi bi-newspaper me-1"></i> Berita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-profil" href="#" onclick="switchPage('profil')"><i class="bi bi-building me-1"></i> Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-jurusan" href="#" onclick="switchPage('jurusan')"><i class="bi bi-grid-fill me-1"></i> Jurusan</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT CONTAINER -->
+    <main class="flex-grow-1">
+
+        <!-- ==================== 1. HALAMAN BERANDA ==================== -->
+        <div id="page-beranda" class="page-section">
+            <!-- Hero Carousel -->
+            <div id="heroCarousel" class="carousel slide shadow-sm" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop" class="d-block w-100" alt="Gedung SMKN 2 Padang">
+                        <div class="carousel-caption text-start">
+                            <h2 class="fw-bold">Selamat Datang di SMKN 2 Padang</h2>
+                            <p class="d-none d-md-block">Mewujudkan Sumber Daya Manusia yang Berkualitas, Berkarakter, dan Siap Kerja di Era Digital.</p>
+                            <button class="btn btn-warning fw-bold text-dark" onclick="switchPage('profil')">Jelajahi Profil</button>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1200&auto=format&fit=crop" class="d-block w-100" alt="Praktikum Siswa">
+                        <div class="carousel-caption text-start">
+                            <h2 class="fw-bold">Pembelajaran Berbasis Industri</h2>
+                            <p class="d-none d-md-block">Fasilitas laboratorium modern dan kurikulum yang disesuaikan dengan kebutuhan dunia kerja.</p>
+                            <button class="btn btn-warning fw-bold text-dark" onclick="switchPage('jurusan')">Lihat Jurusan</button>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" class="d-block w-100" alt="Kegiatan Siswa">
+                        <div class="carousel-caption text-start">
+                            <h2 class="fw-bold">Prestasi & Karakter Terbaik</h2>
+                            <p class="d-none d-md-block">Mendukung bakat akademik dan non-akademik siswa melalui ekstrakurikuler unggulan.</p>
+                            <button class="btn btn-warning fw-bold text-dark" onclick="switchPage('berita')">Berita Terbaru</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <!-- Sekilas Visi & Misi -->
+            <section class="py-5 bg-white">
+                <div class="container">
+                    <div class="row align-items-center g-4">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded-4 shadow" alt="Sekolah">
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge bg-primary-subtle text-primary-custom px-3 py-2 rounded-pill fw-bold mb-2">Visi & Misi Singkat</span>
+                            <h2 class="fw-bold mb-3">Mencetak Lulusan Unggul & Berdaya Saing</h2>
+                            <p class="text-muted">SMKN 2 Padang berkomitmen memberikan pendidikan kejuruan berkualitas tinggi dengan menanamkan nilai disiplin, profesionalisme, serta inovasi teknologi.</p>
+                            
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="icon-box bg-primary-subtle text-primary-custom me-3 flex-shrink-0">
+                                    <i class="bi bi-award-fill"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Berakreditasi A</h5>
+                                    <p class="text-muted small mb-0">Menjamin standar pendidikan bermutu nasional dengan kurikulum berstandar industri.</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start">
+                                <div class="icon-box bg-primary-subtle text-primary-custom me-3 flex-shrink-0">
+                                    <i class="bi bi-briefcase-fill"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Kemitraan Luas</h5>
+                                    <p class="text-muted small mb-0">Bekerjasama dengan puluhan perusahaan terkemuka untuk penyaluran kerja alumni.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Highlight Berita Terbaru -->
+            <section class="py-5 bg-light">
+                <div class="container">
+                    <div class="d-flex justify-content-between align-items-end mb-4">
+                        <div>
+                            <h3 class="fw-bold text-primary-custom mb-1">Berita & Informasi Terbaru</h3>
+                            <p class="text-muted mb-0">Kabar seputar kegiatan dan prestasi warga SMKN 2 Padang</p>
+                        </div>
+                        <button class="btn btn-outline-primary rounded-pill" onclick="switchPage('berita')">Lihat Semua <i class="bi bi-arrow-right ms-1"></i></button>
+                    </div>
+
+                    <div class="row g-4" id="home-news-container">
+                        <!-- Rendered via Javascript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== 2. HALAMAN BERITA ==================== -->
+        <div id="page-berita" class="page-section d-none">
+            <div class="bg-primary-custom text-white py-5 mb-4">
+                <div class="container text-center">
+                    <h1 class="fw-bold">Berita & Pengumuman</h1>
+                    <p class="lead mb-0">Informasi terkini kegiatan dan kabar Sekolah Menengah Kejuruan Negeri 2 Padang</p>
+                </div>
+            </div>
+
+            <div class="container pb-5">
+                <!-- Search & Filter Bar -->
+                <div class="row mb-4 justify-content-center">
+                    <div class="col-md-6">
+                        <div class="input-group shadow-sm rounded-pill overflow-hidden">
+                            <span class="input-group-text bg-white border-0 ps-3"><i class="bi bi-search text-muted"></i></span>
+                            <input type="text" id="news-search-input" class="form-control border-0 py-2" placeholder="Cari berita atau pengumuman..." onkeyup="filterNews()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid Berita -->
+                <div class="row g-4" id="all-news-container">
+                    <!-- Rendered via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 3. HALAMAN PROFIL ==================== -->
+        <div id="page-profil" class="page-section d-none">
+            <div class="bg-primary-custom text-white py-5 mb-4">
+                <div class="container text-center">
+                    <h1 class="fw-bold">Profil Sekolah</h1>
+                    <p class="lead mb-0">Mengenal Lebih Dekat SMKN 2 Padang</p>
+                </div>
+            </div>
+
+            <div class="container pb-5">
+                <!-- Nav Tabs Profil -->
+                <ul class="nav nav-pills justify-content-center mb-4 gap-2" id="profilTabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active rounded-pill px-4" id="tab-sejarah" data-bs-toggle="tab" data-bs-target="#content-sejarah">Sejarah & Akreditasi</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link rounded-pill px-4" id="tab-fasilitas" data-bs-toggle="tab" data-bs-target="#content-fasilitas">Fasilitas</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link rounded-pill px-4" id="tab-tatatertib" data-bs-toggle="tab" data-bs-target="#content-tatatertib">Tata Tertib</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content bg-white p-4 p-md-5 rounded-4 shadow-sm">
+                    <!-- Tab 1: Sejarah & Akreditasi -->
+                    <div class="tab-pane fade show active" id="content-sejarah">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-7">
+                                <h3 class="fw-bold text-primary-custom mb-3">Sejarah Singkat SMKN 2 Padang</h3>
+                                <p>SMKN 2 Padang merupakan salah satu sekolah kejuruan tertua dan terkemuka di Kota Padang, Sumatera Barat. Berdiri sejak puluhan tahun lalu, sekolah ini awalnya berfokus pada bidang bisnis dan manajemen sebelum berkembang mencakup bidang teknologi informasi.</p>
+                                <p>Berbagai transformasi telah dilalui untuk menyesuaikan dengan iklim industri modern. Kini SMKN 2 Padang secara konsisten melahirkan lulusan berbakat yang siap mengisi peluang kerja nasional maupun kewirausahaan.</p>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="card border-0 bg-light p-4 rounded-4">
+                                    <h4 class="fw-bold text-center mb-3">Identitas Sekolah</h4>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="py-2 border-bottom d-flex justify-content-between"><strong>NPSN:</strong> <span>10303482</span></li>
+                                        <li class="py-2 border-bottom d-flex justify-content-between"><strong>Akreditasi:</strong> <span class="badge bg-success">A (Unggul)</span></li>
+                                        <li class="py-2 border-bottom d-flex justify-content-between"><strong>Status:</strong> <span>Negeri</span></li>
+                                        <li class="py-2 border-bottom d-flex justify-content-between"><strong>Kepala Sekolah:</strong> <span>Drs. Hj. Rina, M.Pd</span></li>
+                                        <li class="py-2 d-flex justify-content-between"><strong>Kurikulum:</strong> <span>Kurikulum Merdeka</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Fasilitas -->
+                    <div class="tab-pane fade" id="content-fasilitas">
+                        <h3 class="fw-bold text-primary-custom mb-4 text-center">Fasilitas Penunjang Belajar</h3>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="p-3 border rounded-3 text-center hover-card">
+                                    <div class="icon-box bg-primary-subtle text-primary-custom mx-auto mb-3">
+                                        <i class="bi bi-pc-display"></i>
+                                    </div>
+                                    <h5 class="fw-bold">Lab Komputer & RPL</h5>
+                                    <p class="text-muted small">Dilengkapi unit PC spesifikasi tinggi, jaringan LAN cepat, dan AC untuk kenyamanan belajar praktikum.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 border rounded-3 text-center hover-card">
+                                    <div class="icon-box bg-primary-subtle text-primary-custom mx-auto mb-3">
+                                        <i class="bi bi-journal-bookmark-fill"></i>
+                                    </div>
+                                    <h5 class="fw-bold">Perpustakaan Digital</h5>
+                                    <p class="text-muted small">Koleksi ribuan buku fisik dan e-book yang mudah diakses oleh seluruh siswa/i.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 border rounded-3 text-center hover-card">
+                                    <div class="icon-box bg-primary-subtle text-primary-custom mx-auto mb-3">
+                                        <i class="bi bi-shop"></i>
+                                    </div>
+                                    <h5 class="fw-bold">Business Center / Mini Market</h5>
+                                    <p class="text-muted small">Sarana praktik langsung kewirausahaan dan ritel bagi siswa jurusan Manajemen Pemasaran.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 border rounded-3 text-center hover-card">
+                                    <div class="icon-box bg-primary-subtle text-primary-custom mx-auto mb-3">
+                                        <i class="bi bi-dribbble"></i>
+                                    </div>
+                                    <h5 class="fw-bold">Lap. Olahraga Serbaguna</h5>
+                                    <p class="text-muted small">Fasilitas lapangan untuk basket, voli, dan futsal guna menjaga kebugaran jasmani siswa.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 border rounded-3 text-center hover-card">
+                                    <div class="icon-box bg-primary-subtle text-primary-custom mx-auto mb-3">
+                                        <i class="bi bi-moon-stars-fill"></i>
+                                    </div>
+                                    <h5 class="fw-bold">Musholla Sekolah</h5>
+                                    <p class="text-muted small">Tempat beribadah yang nyaman dan bersih untuk pembentukan karakter spiritual siswa.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 border rounded-3 text-center hover-card">
+                                    <div class="icon-box bg-primary-subtle text-primary-custom mx-auto mb-3">
+                                        <i class="bi bi-wifi"></i>
+                                    </div>
+                                    <h5 class="fw-bold">Area Wi-Fi Gratis</h5>
+                                    <p class="text-muted small">Koneksi internet cepat terjangkau di seluruh area lingkungan sekolah.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Tata Tertib -->
+                    <div class="tab-pane fade" id="content-tatatertib">
+                        <h3 class="fw-bold text-primary-custom mb-3">Tata Tertib & Norma Sekolah</h3>
+                        <p class="text-muted">Untuk menciptakan lingkungan belajar yang kondusif, aman, dan disiplin, seluruh siswa SMKN 2 Padang wajib mematuhi ketentuan berikut:</p>
+                        
+                        <div class="accordion" id="accordionRule">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rule1">
+                                        1. Kehadiran & Jam Belajar
+                                    </button>
+                                </h2>
+                                <div id="rule1" class="accordion-collapse collapse show" data-bs-parent="#accordionRule">
+                                    <div class="accordion-body">
+                                        Siswa wajib hadir sebelum pukul 07.15 WIB. Pembelajaran dimulai dengan doa bersama dan literasi. Siswa yang terlambat wajib melapor ke guru piket.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rule2">
+                                        2. Seragam Sekolah
+                                    </button>
+                                </h2>
+                                <div id="rule2" class="accordion-collapse collapse" data-bs-parent="#accordionRule">
+                                    <div class="accordion-body">
+                                        Menggunakan pakaian seragam sesuai ketentuan hari (Putih-Abu, Pramuka, Baju Praktik Jurusan, Batik) lengkap dengan atribut, sabuk, dan sepatu hitam polos.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rule3">
+                                        3. Sikap & Etika Digital
+                                    </button>
+                                </h2>
+                                <div id="rule3" class="accordion-collapse collapse" data-bs-parent="#accordionRule">
+                                    <div class="accordion-body">
+                                        Menjaga sopan santun kepada guru, staf, dan sesama teman. Dilarang keras membawa barang terlarang, rokok, serta menjaga etika dalam penggunaan media sosial.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 4. HALAMAN JURUSAN ==================== -->
+        <div id="page-jurusan" class="page-section d-none">
+            <div class="bg-primary-custom text-white py-5 mb-4">
+                <div class="container text-center">
+                    <h1 class="fw-bold">Program Keahlian / Jurusan</h1>
+                    <p class="lead mb-0">Pilihan Konsentrasi Keahlian Berbasis Kebutuhan Industri Unggulan</p>
+                </div>
+            </div>
+
+            <div class="container pb-5">
+                <div class="row g-4" id="jurusan-container">
+                    <!-- Rendered via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold text-white mb-3"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>SMKN 2 PADANG</h5>
+                    <p class="text-secondary small">Sekolah Menengah Kejuruan Negeri 2 Padang berdedikasi mencetak lulusan profesional, kreatif, dan siap bersaing di pasar kerja global.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="fw-bold mb-3 text-warning">Tautan Cepat</h6>
+                    <ul class="list-unstyled text-secondary small">
+                        <li class="mb-2"><a href="#" onclick="switchPage('beranda')" class="text-decoration-none text-secondary">Beranda</a></li>
+                        <li class="mb-2"><a href="#" onclick="switchPage('berita')" class="text-decoration-none text-secondary">Berita Utama</a></li>
+                        <li class="mb-2"><a href="#" onclick="switchPage('profil')" class="text-decoration-none text-secondary">Profil Sekolah</a></li>
+                        <li class="mb-2"><a href="#" onclick="switchPage('jurusan')" class="text-decoration-none text-secondary">Program Jurusan</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="fw-bold mb-3 text-warning">Kontak</h6>
+                    <p class="text-secondary small mb-1"><i class="bi bi-geo-alt me-2"></i>Jl. Simpang Haru No. 1, Padang</p>
+                    <p class="text-secondary small mb-1"><i class="bi bi-telephone me-2"></i>(0751) 21511</p>
+                    <p class="text-secondary small"><i class="bi bi-envelope me-2"></i>info@smkn2padang.sch.id</p>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="fw-bold mb-3 text-warning">Media Sosial</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="text-center text-secondary small">
+                &copy; 2026 SMKN 2 Padang. Designed with Bootstrap 5.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DETAIL BERITA -->
+    <div class="modal fade" id="newsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="newsModalTitle">Detail Berita</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="newsModalImg" src="" class="img-fluid rounded-3 mb-3 w-100" style="max-height: 350px; object-fit: cover;" alt="">
+                    <small class="text-muted d-block mb-2" id="newsModalDate"></small>
+                    <div id="newsModalContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DATA & SCRIPT SPA -->
+    <script>
+        // Data Berita
+        const newsData = [
+            {
+                id: 1,
+                title: "SMKN 2 Padang Raih Juara Lomba Kompetensi Siswa (LKS) Tingkat Provinsi",
+                date: "12 Oktober 2026",
+                img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop",
+                summary: "Siswa jurusan Rekayasa Perangkat Lunak berhasil menyabet medali emas dalam kompetisi pemograman web tingkat provinsi.",
+                content: "<p>Tim siswa dari SMKN 2 Padang kembali mengharumkan nama sekolah dalam ajang Lomba Kompetensi Siswa (LKS) tingkat provinsi. Siswa konsentrasi keahlian RPL meraih Juara 1 pada cabang lomba Web Technologies.</p><p>Kepala Sekolah mengapresiasi kerja keras para pembimbing dan siswa yang telah berlatih secara intensif selama 3 bulan terakhir.</p>"
+            },
+            {
+                id: 2,
+                title: "Kunjungan Industri & Penandatanganan MOU dengan PT Telekomunikasi",
+                date: "05 Oktober 2026",
+                img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+                summary: "Perkuat penyaluran kerja alumni, SMKN 2 Padang menjalin kerjasama strategis dengan industri teknologi terkemuka.",
+                content: "<p>Dalam rangka memperkuat link and match antara dunia pendidikan dan industri, SMKN 2 Padang resmi menandatangani Kesepakatan Kerjasama (MoU) dengan BUMN & perusahaan nasional.</p><p>Kerjasama ini mencakup penyelarasan kurikulum, guru tamu, magang siswa, hingga prioritas rekrutmen alumni.</p>"
+            },
+            {
+                id: 3,
+                title: "Pelaksanaan Asesmen Nasional Berbasis Komputer (ANBK) Berjalan Lancar",
+                date: "28 September 2026",
+                img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop",
+                summary: "Seluruh sarana dan prasarana laboratorium komputer siap mendukung ANBK dengan jaringan stabil.",
+                content: "<p>Pelaksanaan ANBK tahun ajaran ini berjalan dengan sangat tertib dan lancar. Didukung oleh 4 laboratorium komputer berperforma tinggi, siswa dapat menyelesaikan soal-soal literasi dan numerasi tanpa kendala teknis.</p>"
+            },
+            {
+                id: 4,
+                title: "Kegiatan Job Fair & Bursa Kerja Khusus (BKK) SMKN 2 Padang",
+                date: "15 September 2026",
+                img: "https://images.unsplash.com/photo-1560523131-75514b6c568d?q=80&w=800&auto=format&fit=crop",
+                summary: "BKK SMKN 2 Padang membuka kesempatan karir terbuka bagi kelas XII dan para alumni.",
+                content: "<p>Puluhan perusahaan mitra hadir langsung di GOR SMKN 2 Padang untuk membuka lowongan kerja bagi para calon lulusan dan alumni. Acara ini diminati oleh ratusan pencari kerja muda di Sumatera Barat.</p>"
+            }
+        ];
+
+        // Data Jurusan
+        const jurusanData = [
+            {
+                name: "Pengembangan Perangkat Lunak & Gim (RPL)",
+                icon: "bi-code-slash",
+                desc: "Fokus pada pemrograman web, aplikasi mobile, basis data, dan pengembangan game interaktif berbasis teknologi terkini.",
+                jobs: "Software Engineer, Web Developer, Mobile App Developer, UI/UX Designer."
+            },
+            {
+                name: "Teknik Jaringan Komputer & Telekomunikasi (TKJ)",
+                icon: "bi-router-fill",
+                desc: "Mempelajari perakitan komputer, instalasi jaringan fiber optic, konfigurasi server, dan sistem keamanan siber (cyber security).",
+                jobs: "Network Administrator, System Administrator, Cloud Engineer, IT Support."
+            },
+            {
+                name: "Akuntansi & Keuangan Lembaga (AKL)",
+                icon: "bi-calculator-fill",
+                desc: "Mempelajari pencatatan keuangan akuntansi, pembukuan digital, perpajakan, dan pengelolaan aplikasi akuntansi keuangan.",
+                jobs: "Staf Akuntansi, Admin Keuangan, Junior Auditor, Kasir Bank/Lembaga Keuangan."
+            },
+            {
+                name: "Manajemen Perkantoran & Layanan Bisnis (MPLB)",
+                icon: "bi-building-gear",
+                desc: "Menguasai tata kelola administrasi modern, kearsipan digital, komunikasi bisnis, serta manajemen publik secara profesional.",
+                jobs: "Administrasi Perkantoran, Customer Service, Executive Assistant, Staff HRD."
+            },
+            {
+                name: "Pemasaran / Bisnis Digital (BD)",
+                icon: "bi-cart-check-fill",
+                desc: "Fokus pada strategi pemasaran digital (Digital Marketing), e-commerce, content creation, dan pengolahan bisnis ritel.",
+                jobs: "Digital Marketer, Social Media Specialist, Entrepreneur, Content Creator."
+            }
+        ];
+
+        // Functions untuk render data
+        function renderNews() {
+            // Render 3 berita di Beranda
+            const homeNewsEl = document.getElementById('home-news-container');
+            homeNewsEl.innerHTML = newsData.slice(0, 3).map(news => `
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-card">
+                        <img src="${news.img}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="${news.title}">
+                        <div class="card-body d-flex flex-column">
+                            <small class="text-muted mb-2"><i class="bi bi-calendar3 me-1"></i>${news.date}</small>
+                            <h5 class="card-title fw-bold text-dark fs-6">${news.title}</h5>
+                            <p class="card-text text-muted small flex-grow-1">${news.summary}</p>
+                            <button class="btn btn-sm btn-outline-primary rounded-pill mt-3 align-self-start" onclick="openNewsModal(${news.id})">Baca Selengkapnya</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render semua berita di Halaman Berita
+            renderAllNews(newsData);
+        }
+
+        function renderAllNews(data) {
+            const allNewsEl = document.getElementById('all-news-container');
+            if (data.length === 0) {
+                allNewsEl.innerHTML = `<div class="text-center py-5"><i class="bi bi-search fs-1 text-muted"></i><p class="mt-2 text-muted">Berita tidak ditemukan...</p></div>`;
+                return;
+            }
+            allNewsEl.innerHTML = data.map(news => `
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-card">
+                        <img src="${news.img}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="${news.title}">
+                        <div class="card-body d-flex flex-column">
+                            <small class="text-muted mb-2"><i class="bi bi-calendar3 me-1"></i>${news.date}</small>
+                            <h5 class="card-title fw-bold text-dark fs-6">${news.title}</h5>
+                            <p class="card-text text-muted small flex-grow-1">${news.summary}</p>
+                            <button class="btn btn-sm btn-primary-custom rounded-pill mt-3 align-self-start" onclick="openNewsModal(${news.id})">Baca Selengkapnya</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderJurusan() {
+            const jurusanEl = document.getElementById('jurusan-container');
+            jurusanEl.innerHTML = jurusanData.map(j => `
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-3 hover-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="icon-box bg-primary-custom text-white mb-3">
+                                <i class="bi ${j.icon}"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">${j.name}</h5>
+                            <p class="text-muted small mb-3 flex-grow-1">${j.desc}</p>
+                            <div class="bg-light p-3 rounded-3 mt-auto">
+                                <strong class="d-block small text-primary-custom mb-1"><i class="bi bi-briefcase me-1"></i> Prospek Kerja:</strong>
+                                <span class="small text-secondary">${j.jobs}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // SPA Navigation Handler
+        function switchPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.add('d-none');
+            });
+
+            // Remove active status from nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show selected page
+            const targetPage = document.getElementById(`page-${pageId}`);
+            if (targetPage) {
+                targetPage.classList.remove('d-none');
+            }
+
+            // Set active tab in navbar
+            const targetNav = document.getElementById(`nav-${pageId}`);
+            if (targetNav) {
+                targetNav.classList.add('active');
+            }
+
+            // Close navbar collapse on mobile after click
+            const navbarCollapse = document.getElementById('navbarNav');
+            if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Open Modal Detail Berita
+        function openNewsModal(id) {
+            const news = newsData.find(n => n.id === id);
+            if (news) {
+                document.getElementById('newsModalTitle').innerText = news.title;
+                document.getElementById('newsModalImg').src = news.img;
+                document.getElementById('newsModalDate').innerText = news.date;
+                document.getElementById('newsModalContent').innerHTML = news.content;
+
+                const newsModal = new bootstrap.Modal(document.getElementById('newsModal'));
+                newsModal.show();
+            }
+        }
+
+        // Search Berita
+        function filterNews() {
+            const query = document.getElementById('news-search-input').value.toLowerCase();
+            const filtered = newsData.filter(news => 
+                news.title.toLowerCase().includes(query) || 
+                news.summary.toLowerCase().includes(query)
+            );
+            renderAllNews(filtered);
+        }
+
+        // Initialize on Load
+        window.onload = function() {
+            renderNews();
+            renderJurusan();
+        };
+    </script>
+</body>
+</html>
